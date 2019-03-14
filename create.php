@@ -39,10 +39,10 @@
 		//INSERINDO DADOS
 		if($valid) {
 			$pdo = Database::connect();
-			$pdo->serAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO customers (name, email, mobile) VALUES (?; ?; ?)";
-			$q-> $pdo->prepare($sql);
-			$q->execute(array($name, $email, $mobile));
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "INSERT INTO customers (nome, email, mobile) VALUES (?; ?; ?)";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($name,$email,$mobile));
 			Database::disconnect();
 			header("Location: index.php");
 		}

@@ -1,10 +1,10 @@
 <?php
     class Database
     {
-        private static $dbName = 'crud_tutorial';
+        /*private static $dbName = 'crud_php_star';
         private static $dbHost = 'localhost';
-        private static $dbUsername = 'root';
-        private static $dbUserpassword = 'root';
+        private static $dbUsername = 'crud_php';
+        private static $dbUserpassword = '123';*/
 
         private static $cont = null;
 
@@ -18,7 +18,7 @@
             if ( null == self::$cont)
             {
                 try{
-                    self::$cont = new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                self::$cont = new PDO( "mysql:host=localhost; dbname=crud_php_star", "crud_php", "123");
                 }
                 catch(PDOException $e)
                 {
@@ -27,7 +27,7 @@
             }
             return self::$cont;
         }
-        public static function disconect()
+        public static function disconnect()
         {
             self::$cont = null;
         }
