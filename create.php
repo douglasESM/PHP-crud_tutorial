@@ -22,7 +22,7 @@
 			$valid = false;
 		}
 
-		if (empty($name)){
+		if (empty($email)){
 			$emailError = 'Please enter Email Address';
 			$valid = false;
 		}else if ( !filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -40,7 +40,7 @@
 		if($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO customers (nome, email, mobile) VALUES (?; ?; ?)";
+			$sql = "INSERT INTO customers (nome, email, mobile) VALUES (?, ?, ?)";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($name,$email,$mobile));
 			Database::disconnect();
